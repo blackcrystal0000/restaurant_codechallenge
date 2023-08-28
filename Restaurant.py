@@ -47,3 +47,11 @@ class Customer:
     def add_review(self, restaurant, rating):
         new_review = Review(self, restaurant, rating)
         self.reviews.append(new_review)
+
+         # Define a class method to find a customer by their full name
+    @classmethod
+    def find_by_name(cls, name):
+        for customer in cls.all():
+            if customer.full_name() == name:
+                return customer
+        return "No customer found with that name"
