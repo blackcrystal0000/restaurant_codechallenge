@@ -141,3 +141,6 @@ class Review:
 
         # Create a customer instance
 Annie = Customer("Annie", "Harper")
+
+# Print Annie's family name using the property
+print(Annie.family_name)
