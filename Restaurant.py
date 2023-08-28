@@ -121,3 +121,21 @@ class Review:
         self.restaurant.reviews.append(self)
         # Add the review to the list of all reviews
         Review.all_reviews.append(self)
+
+          # Define a getter method to return the rating property
+    def rating(self):
+        return self.rating
+
+    # Define a class method to return all reviews
+    @classmethod
+    def all(cls):
+        return cls.all_reviews
+
+    # Define a method to return the customer object for the review
+    def customer(self):
+        return self.customer
+
+    # Define a method to return the restaurant object for the review
+    def restaurant(self):
+        return self.restaurant
+
