@@ -1,0 +1,116 @@
+# Object Relations Code Challenge - Restaurants
+
+This project involves creating a Yelp-style domain with three models - `Restaurant`, `Customer`, and `Review`. Customers can write reviews for restaurants, and each review belongs to a specific customer and restaurant. Restaurants and customers have a many-to-many relationship.
+
+To complete this project, you will need to implement several methods in the `Restaurant`, `Customer`, and `Review` classes. These include initializers, readers, writers, and object relationship methods.
+
+## Installation
+
+To get started, use the provided Pipfile to install all necessary dependencies for this project.
+
+```bash
+pipenv install
+```
+
+## Usage
+
+To use the classes and methods provided, you can create instances of `Restaurant`, `Customer`, and `Review`, and call their respective methods. Here is an example of how to use the `Customer` class:
+
+```python
+from customer import Customer
+
+# create a new customer
+customer = Customer("John", "Doe")
+
+# get the customer's name
+name = customer.full_name()
+print(name)
+
+# change the customer's given name
+customer.given_name = "Jane"
+
+# get the customer's updated name
+name = customer.full_name()
+print(name)
+```
+
+## Deliverables
+
+### Initializers, Readers, and Writers
+
+#### Customer
+
+- `Customer __init__(self, first_name: str, last_name: str)`
+  - Customer should be initialized with a given name and family name, both strings
+- `Customer given_name(self) -> str`
+  - returns the customer's given name
+  - should be able to change after the customer is created
+- `Customer family_name(self) -> str`
+  - returns the customer's family name
+  - should be able to change after the customer is created
+- `Customer full_name(self) -> str`
+  - returns the full name of the customer, with the given name and the family name concatenated, Western style.
+- `Customer all(cls) -> list[Customer]`
+  - returns **all** of the customer instances
+
+#### Restaurant
+
+- `Restaurant __init__(self, name: str)`
+  - Restaurants should be initialized with a name, as a string
+- `Restaurant name(self) -> str`
+  - returns the restaurant's name
+  - should not be able to change after the restaurant is created
+
+#### Review
+
+- `Review __init__(self, customer: Customer, restaurant: Restaurant, rating: int)`
+  - Reviews should be initialized with a customer, restaurant, and a rating (a number)
+- `Review rating(self) -> int`
+  - returns the rating for a restaurant.
+- `Review all(cls) -> list[Review]`
+  - returns all of the reviews
+
+### Object Relationship Methods
+
+#### Review
+
+- `Review customer(self) -> Customer`
+  - returns the customer object for that review
+  - Once a review is created, should not be able to change the customer
+- `Review restaurant(self) -> Restaurant`
+  - returns the restaurant object for that given review
+  - Once a review is created, should not be able to change the restaurant
+
+#### Restaurant
+
+- `Restaurant reviews(self) -> list[Review]`
+  - returns a list of all reviews for that restaurant
+- `Restaurant customers(self) -> list[Customer]`
+  - Returns a **unique** list of all customers who have reviewed a particular restaurant.
+
+#### Customer
+
+- `Customer restaurants(self) -> list[Restaurant]`
+  - Returns a **unique** list of all restaurants a customer has reviewed
+- `Customer add_review(self, restaurant: Restaurant, rating: int)`
+  - given a **restaurant object** and a star rating (as an integer), creates a new review and associates it with that customer and restaurant.
+
+### Aggregate and Association Methods
+
+#### Customer
+
+- `Customer num_reviews(self) -> int`
+  - Returns the total number of reviews that a customer has authored
+- `Customer find_by_name(cls, name: str) -> Customer`
+  - given a string of a **full name**, returns the **first customer** whose full name matches
+- `Customer find_all_by_given_name(cls, name: str) -> list[Customer]`
+  - given a string of a given name, returns an **list** containing all customers with that given name
+
+#### Restaurant
+
+- `Restaurant average_star_rating(self) -> float`
+  - returns the average star rating for a restaurant based on its reviews
+  - Reminder: you can calculate the average by adding up all the ratings and dividing by the number of ratings
+
+## Author
+- Crystal Kariuki
