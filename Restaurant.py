@@ -96,3 +96,13 @@ class Restaurant:
         for review in self.reviews:
             customers.append(review.customer)
         return list(set(customers))
+
+         # Define a method to return the average star rating for the restaurant
+    def average_star_rating(self):
+        total_rating = 0
+        for review in self.reviews:
+            total_rating += review.rating
+        if len(self.reviews) == 0:
+            return "No ratings yet"
+        else:
+            return total_rating / len(self.reviews)
