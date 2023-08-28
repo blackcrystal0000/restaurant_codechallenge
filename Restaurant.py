@@ -22,3 +22,12 @@ class Customer:
     # Define a method to return the full name of the customer in Western style
     def full_name(self):
         return f'{self.family_name} {self.given_name}'
+
+        # Define a method to return a string representation of the class
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.given_name}, {self.family_name})"
+
+    # Define a class method to return all customers
+    @classmethod
+    def all(cls):
+        return cls.all_customers
