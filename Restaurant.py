@@ -55,3 +55,12 @@ class Customer:
             if customer.full_name() == name:
                 return customer
         return "No customer found with that name"
+
+         # Define a class method to find all customers with a given given_name
+    @classmethod
+    def find_all_by_given_name(cls, name):
+        customers_with_given_name = []
+        for customer in cls.all():
+            if customer.given_name == name:
+                customers_with_given_name.append(customer)
+        return customers_with_given_name
