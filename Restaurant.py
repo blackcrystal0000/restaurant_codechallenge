@@ -139,3 +139,5 @@ class Review:
     def restaurant(self):
         return self.restaurant
 
+        # Create a customer instance
+Annie = Customer("Annie", "Harper")
