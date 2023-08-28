@@ -31,3 +31,19 @@ class Customer:
     @classmethod
     def all(cls):
         return cls.all_customers
+
+         # Define a method to return a list of all the restaurants reviewed by the customer
+    def restaurants(self):
+        reviewed_restaurants = [] 
+        for review in self.reviews:
+            reviewed_restaurants.append(review.restaurant)
+        return list(set(reviewed_restaurants))
+
+    # Define a method to return the total number of reviews written by the customer
+    def num_reviews(self):
+        return len(self.reviews)
+
+    # Define a method to add a review for a restaurant to the customer's list of reviews
+    def add_review(self, restaurant, rating):
+        new_review = Review(self, restaurant, rating)
+        self.reviews.append(new_review)
