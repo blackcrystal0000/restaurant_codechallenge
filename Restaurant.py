@@ -89,3 +89,10 @@ class Restaurant:
     # Define a method to return a list of all the reviews for the restaurant
     def reviews(self):
         return self.reviews
+
+         # Define a method to return a list of all customers who have reviewed the restaurant
+    def customers(self):
+        customers = []
+        for review in self.reviews:
+            customers.append(review.customer)
+        return list(set(customers))
