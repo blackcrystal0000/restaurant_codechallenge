@@ -76,3 +76,16 @@ class Restaurant:
         self.reviews = []
         # Add the restaurant to the list of all restaurants
         Restaurant.all_restaurants.append(self)
+
+         # Define a getter method to return the name property
+    def name(self):
+        return self.name
+
+    # Define a class method to return all restaurants
+    @classmethod
+    def all(cls):
+        return cls.all_restaurants
+
+    # Define a method to return a list of all the reviews for the restaurant
+    def reviews(self):
+        return self.reviews
