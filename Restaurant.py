@@ -64,3 +64,15 @@ class Customer:
             if customer.given_name == name:
                 customers_with_given_name.append(customer)
         return customers_with_given_name
+
+        # Define the Restaurant class
+class Restaurant:
+    # Initialize a class variable to store all restaurants
+    all_restaurants = []
+
+    # Define the constructor method to set the name property
+    def __init__(self, name):
+        self.name = name
+        self.reviews = []
+        # Add the restaurant to the list of all restaurants
+        Restaurant.all_restaurants.append(self)
