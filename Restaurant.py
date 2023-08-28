@@ -106,3 +106,18 @@ class Restaurant:
             return "No ratings yet"
         else:
             return total_rating / len(self.reviews)
+
+            # Define the Review class
+class Review:
+    # Initialize a class variable to store all reviews
+    all_reviews = []
+
+    # Define the constructor method to set the customer, restaurant, and rating properties
+    def __init__(self, customer, restaurant, rating):
+        self.customer = customer
+        self.restaurant = restaurant
+        self.rating = rating
+        self.customer.reviews.append(self)
+        self.restaurant.reviews.append(self)
+        # Add the review to the list of all reviews
+        Review.all_reviews.append(self)
